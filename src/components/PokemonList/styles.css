@@ -1,0 +1,12 @@
+.PokemonCard {
+  border-radius: 20px;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0.1em 0.1em 0.6em -0.2em #999;
+}
+
+.PokemonCard-title {
+  font-size: 2em;
+  text-align: center;
+  color: #999;
+}
