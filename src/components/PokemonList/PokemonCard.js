@@ -8,9 +8,15 @@ function PokemonCard({ pokemon }) {
     <Grid.Column mobile={16} tablet={8} computer={4}>
       <div className="PokemonCard">
         <Icon name="favorite" color={FAV_COLOR} />
-        <Image centered src="" alt="Pokemon Front" />
+        <Image
+          centered
+          src={pokemon.sprites.front_default}
+          alt="Pokemon Front"
+        />
         <p className="PokemonCard-title">{pokemon.name}</p>
-        <Label color={MAIN_COLOR}>Normal</Label>
+        {pokemon.types.map((type) => {
+          return <Label color={MAIN_COLOR}>{type.type.name}</Label>;
+        })}
       </div>
     </Grid.Column>
   );

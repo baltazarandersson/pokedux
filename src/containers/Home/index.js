@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,9 +15,20 @@ function Home() {
   useEffect(() => {
     getPokemons()
       .then((res) => {
-        dispatch(setPokemon(res.results));
+        const pokemonList = res.results;
+        return Promise.all(
+          pokemonList.map((pokemon) => axios.get(pokemon.url))
+        );
       })
-      .catch(console.log);
+      .then((pokemonsResponse) => {
+        const pokemonsData = pokemonsResponse.map(
+          (pokemonData) => pokemonData.data
+        );
+        dispatch(setPokemon(pokemonsData));
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
