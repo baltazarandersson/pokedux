@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonWithDetails } from "../../actions";
 import Loader from "../../components/Loader";
 import PokemonList from "../../components/PokemonList";
 import Searcher from "../../components/Searcher";
+import { fetchPokemons } from "../../slices/pokemon";
 import "./styles.css";
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
   const loading = useSelector((state) => state.ui.loading);
 
   useEffect(() => {
-    dispatch(getPokemonWithDetails());
+    dispatch(fetchPokemons());
   }, []);
 
   return (
