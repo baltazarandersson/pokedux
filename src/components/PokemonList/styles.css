@@ -8,5 +8,19 @@
 .PokemonCard-title {
   font-size: 2em;
   text-align: center;
-  color: #999;
+  color: black;
+}
+
+.PokemonCard-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PokemonCard-favorite {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
 }

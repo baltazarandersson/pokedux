@@ -6,7 +6,7 @@ function PokemonList({ pokemons = [] } = {}) {
   return (
     <Grid className="PokemonWrapper">
       {pokemons.map((pokemon) => (
-        <PokemonCard pokemon={pokemon} />
+        <PokemonCard key={pokemon.name} pokemon={pokemon} />
       ))}
     </Grid>
   );
